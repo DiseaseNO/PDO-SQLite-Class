@@ -1,17 +1,16 @@
 PDO Database Class
 ============================
 
-A database class for PHP-MySQL which uses the PDO extension.
+Originally a database class for PHP-MySQL which uses the PDO extension.
 
-If you have any questions go to : http://indieteq.com/index/readmore/how-to-prevent-sql-injection-in-php
+Rewritten to be a DB class for SQLite with support of multiple fetch methods.
+
 
 ## To use the class
 #### 1. Edit the database settings in the settings.ini.php
 ```
 [SQL]
-host = localhost
-user = root
-password = 
+dbpath = Path do dbfile
 dbname = yourdatabase
 ```
 #### 2. Require the class in your project
