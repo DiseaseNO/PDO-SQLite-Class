@@ -1,6 +1,0 @@
-{
-    "name": "Indieteq/PHP-MySQL-PDO-Database-Class",
-    "require": {
-        "php": ">=5.3.0"
-    }
-}
