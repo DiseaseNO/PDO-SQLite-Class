@@ -7,7 +7,6 @@
 * @git                  https://github.com/thomasgustavsen/PDO-SQLite-Class
 *
 */
-require_once("Log.class.php");
 class DB
 {
         # @object, The PDO object
@@ -27,20 +26,6 @@ class DB
 
         # @array, The parameters of the SQL query
         private $parameters;
-                
-       /**
-        * Default Constructor
-        *
-        *        1. Instantiate Log class.
-        *        2. Connect to database.
-        *        3. Creates the parameter array.
-        */
-                public function __construct()
-                {                         
-                        $this->log = new Log();        
-                        $this->Connect();
-                        $this->parameters = array();
-                }
         
        /**
         *        This method makes connection to the database.
@@ -239,18 +224,11 @@ class DB
         */
         private function ExceptionLog($message , $sql = "")
         {
-                $exception = 'Unhandled Exception. <br />';
-                $exception .= $message;
-                $exception .= "<br /> You can find the error back in the log.";
-
-                if(!empty($sql)) {
-                        # Add the Raw SQL to the Log
-                        $message .= "\r\nRaw SQL : " . $sql;
-                }
-                        # Write into log
-                        $this->log->write($message);
-
-                return $exception;
+                $message = "Unhandled Exception from PDO-DB-Class: ".$message." |||| Raw SQL: ".$sql;
+                $message = trim(preg_replace('/\s\s+/', ' ', $message));
+                error_log($message,0); 
+                
+                return $message;
         }                        
 }
 ?>
