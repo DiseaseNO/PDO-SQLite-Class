@@ -1,4 +1,4 @@
 ;<?php return; ?>
 [SQL]
-dbpath = includes/
+dbpath = database/
 dbname = dnsadmin.db
